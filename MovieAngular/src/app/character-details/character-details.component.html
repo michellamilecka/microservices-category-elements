@@ -1,0 +1,12 @@
+<div *ngIf="characterData">
+    <h2>Character Details</h2>
+    
+    <p><strong>Name of the character:</strong> {{ characterData.name }}</p>
+    <p><strong>Name of the actor:</strong> {{ characterData.nameOfActor}}</p>
+    <p><strong>Last name of the actor:</strong> {{ characterData.lastNameOfActor}}</p>
+    <p><strong>Name of the actor:</strong> {{ characterData.nameOfActor}}</p>
+    <p><strong>Estimated age:</strong> {{ characterData.estimatedAge}}</p>
+  
+    <button (click)="goToPreviousPage()">Go back</button>
+  </div>
+  

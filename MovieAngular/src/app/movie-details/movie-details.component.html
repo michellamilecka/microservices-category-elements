@@ -1,0 +1,20 @@
+<div *ngIf="movieData">
+    <h2>Movie Details</h2>
+    
+    <p><strong>Title of the movie:</strong> {{ movieData.name }}</p>
+    <p><strong>Year of premiere:</strong> {{ movieData.yearOfPremiere }}</p>
+    <p>Characters:</p>
+  <ul>
+    <li *ngFor="let characterName of characters; let i = index">
+      {{ characterName.name }}
+      <button (click)="removeCharacter(i)">Remove</button>
+      <button (click)="goToUpdateCharacter(i)">Update</button> 
+      <button (click)="goToCharacterDetails(i)">Details</button> 
+    </li>
+  </ul>
+  <div class="button-div">
+    <button (click)="goToAddCharacter()">Add new character</button>
+    <button (click)="goToMainPage()">Go to main page</button>
+  </div>
+  </div>
+  

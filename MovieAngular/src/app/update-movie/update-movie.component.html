@@ -1,0 +1,24 @@
+<div class="update-movie-form" *ngIf="movieData">
+    <h2>Update Movie</h2>
+    <form [formGroup]="updateMovieForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Title of movie</label>
+        <input id="name" formControlName="name" type="text" />
+        <div *ngIf="updateMovieForm.get('name')?.invalid && updateMovieForm.get('name')?.touched">
+          <small *ngIf="updateMovieForm.get('name')?.errors?.['required']">Title is required.</small>
+        </div>
+      </div>
+      
+      <div>
+        <label for="yearOfPremiere">Year of premiere</label>
+        <input id="yearOfPremiere" formControlName="yearOfPremiere" type="number" />
+        <div *ngIf="updateMovieForm.get('yearOfPremiere')?.invalid && updateMovieForm.get('yearOfPremiere')?.touched">
+          <small *ngIf="updateMovieForm.get('yearOfPremiere')?.errors?.['required']">Year of premiere is required.</small>
+          <small *ngIf="updateMovieForm.get('yearOfPremiere')?.errors?.['pattern']">Year of premiere has to a number.</small>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="updateMovieForm.invalid">Update</button>
+    </form>
+  </div>
+  

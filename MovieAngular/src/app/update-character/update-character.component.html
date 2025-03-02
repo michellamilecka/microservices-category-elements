@@ -1,0 +1,40 @@
+<div class="update-character-form" *ngIf="characterData">
+    <h2>Update Character</h2>
+    <form [formGroup]="updateCharacterForm" (ngSubmit)="onSubmit()">
+      
+      <div>
+        <label for="name">Character Name</label>
+        <input id="name" formControlName="name" type="text" />
+        <div *ngIf="updateCharacterForm.get('name')?.invalid && updateCharacterForm.get('name')?.touched">
+          <small *ngIf="updateCharacterForm.get('name')?.errors?.['required']">Character name is required.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="nameOfActor">Actor's First Name</label>
+        <input id="nameOfActor" formControlName="nameOfActor" type="text" />
+        <div *ngIf="updateCharacterForm.get('nameOfActor')?.invalid && updateCharacterForm.get('nameOfActor')?.touched">
+          <small *ngIf="updateCharacterForm.get('nameOfActor')?.errors?.['required']">Actor's first name is required.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="lastNameOfActor">Actor's Last Name</label>
+        <input id="lastNameOfActor" formControlName="lastNameOfActor" type="text" />
+        <div *ngIf="updateCharacterForm.get('lastNameOfActor')?.invalid && updateCharacterForm.get('lastNameOfActor')?.touched">
+          <small *ngIf="updateCharacterForm.get('lastNameOfActor')?.errors?.['required']">Actor's last name is required.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="estimatedAge">Estimated Age</label>
+        <input id="estimatedAge" formControlName="estimatedAge" type="number" />
+        <div *ngIf="updateCharacterForm.get('estimatedAge')?.invalid && updateCharacterForm.get('estimatedAge')?.touched">
+          <small *ngIf="updateCharacterForm.get('estimatedAge')?.errors?.['required']">Estimated age is required.</small>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="updateCharacterForm.invalid">Update Character</button>
+    </form>
+  </div>
+  

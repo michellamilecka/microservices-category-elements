@@ -1,0 +1,12 @@
+<div class="movie-list">
+  <h2>Movies</h2>
+  <ul>
+    <li *ngFor="let movie of movies; let i = index">
+      <span>{{ movie.name }}</span> 
+      <button (click)="removeMovie(i)">Remove</button>
+      <button (click)="goToUpdateMovie(i)">Update</button> 
+      <button (click)="goToMovieDetails(i)">Details</button> 
+    </li>
+  </ul>
+  <button (click)="goToFormAddMovie()">Add New Movie</button>
+</div>

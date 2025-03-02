@@ -1,0 +1,24 @@
+<div class="add-movie-form">
+    <h2>Add new movie</h2>
+    <form [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="movieName">Movie title</label>
+        <input id="movieName" formControlName="name" type="text" />
+      </div>
+      <div *ngIf="addMovieForm.get('name')?.invalid && addMovieForm.get('name')?.touched">
+        <small *ngIf="addMovieForm.get('name')?.errors?.['required']">Movie title is required.</small>
+      </div>
+  
+      <div>
+        <label for="yearOfPremiere">Year of premiere</label>
+        <input id="yearOfPremiere" formControlName="yearOfPremiere" type="number" />
+      </div>
+      <div *ngIf="addMovieForm.get('yearOfPremiere')?.invalid && addMovieForm.get('yearOfPremiere')?.touched">
+        <small *ngIf="addMovieForm.get('yearOfPremiere')?.errors?.['required']">Year of premiere is required.</small>
+        <small *ngIf="addMovieForm.get('yearOfPremiere')?.errors?.['pattern']">Year of premiere has to a number.</small>
+      </div>
+  
+      <button type="submit" [disabled]="addMovieForm.invalid" >Add movie</button>
+    </form>
+  </div>
+  
