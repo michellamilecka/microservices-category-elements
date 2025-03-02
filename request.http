@@ -1,0 +1,64 @@
+### Wyswietlanie wszystkich filmów
+GET http://localhost:8080/api/movies
+
+### Tworzenie nowego filmu
+POST http://localhost:8080/api/movies
+Content-Type: application/json
+
+{
+  "name": "Percy Jackson And The Lightning Thief",
+  "yearOfPremiere": 2010
+}
+
+###Aktualizacja danych filmu 
+PATCH http://localhost:8080/api/movies/d8e1f802-7179-43e4-a472-a9443116f77c
+Content-Type: application/json
+
+{
+  "name": "Nowy Tytuł Filmu",
+  "year":1234
+}
+
+### Wyswietlanie filmu po ID
+
+GET http://localhost:8080/api/movies/cd0ff113-842c-428a-8ae5-61b5d3dc5f57
+
+### Usuwanie filmu po ID
+
+DELETE http://localhost:8080/api/movies/9f1493db-bae2-46ad-84b8-63ab83ec7e23
+
+
+### Wyswietlanie wszystkich postaci danego filmu
+
+GET http://localhost:8080/api/movies/cd0ff113-842c-448a-8ae5-61b5d3dc5f57/characters
+
+### Wyswietlanie wszystkich postaci
+GET http://localhost:8080/api/characters
+
+### Dodawanie postaci do konkretnego filmu
+POST http://localhost:8080/api/movies/da8b2883-04d6-4f06-8626-6cd1584bd576/characters
+Content-Type: application/json
+
+{
+    "name": "Ron Weasley",
+    "nameOfActor": "Rupert",
+    "lastNameOfActor": "Grint",
+    "estimatedAge": 14
+}
+
+### Wyswietlanie postaci po ID
+GET http://localhost:8080/api/characters/e09f2c67-3c61-43d6-9c13-99c12f848346
+
+### Aktualizowanie postaci po ID
+PATCH http://localhost:8080/api/characters/e09f2c67-3c61-43d6-9c13-99c12f84846
+Content-Type: application/json
+
+{
+  "name": "Nowy Nazwa Postaci",
+  "nameOfActor": "Nowe imie aktora",
+  "lastNameOfActor": "Nowe naziwsko aktora",
+  "estimatedAge":1601
+}
+
+### Usuwanie postaci po ID
+DELETE http://localhost:8080/api/characters/e09f2c67-3c61-43d6-9c13-99c12f88346
